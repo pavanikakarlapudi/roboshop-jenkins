@@ -3,7 +3,7 @@
     src: s-job.xml
     dest: /tmp/s-job.xml
 
-- name: Create Job - "{{DIR}}/[[COMPONENT}}"
+- name: Create Job
   community.general.jenkins_job:
     config: "{{ lookup('file', '/tmp/s-job.xml') }}"
     name: "CIPiprlines/{{COMPONENT}}"
