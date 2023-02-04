@@ -1,4 +1,4 @@
-- name: Create Folder
+- name: Create Folder - {{ item.dir }}
   community.general.jenkins_job:
     config: "{{ lookup('file', 'templates/folder.xml') }}"
     name: "{{item}}"
@@ -8,7 +8,7 @@
   loop: "{{ folders }}"
 
 - name: Create Pipeline Jobs
-  ansible.builtin.include_tasks: mbranch-pipeline.yml
-  loop: "{{ ci_pipeline_jobs }}"
+  ansible.builtin.include_tasks: pipeline.yml
+  loop: "{{ pipeline_jobs }}"
 
 
