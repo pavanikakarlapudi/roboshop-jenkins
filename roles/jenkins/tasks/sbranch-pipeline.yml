@@ -7,13 +7,13 @@
   register: out
   ignore_errors: yes
 
-- name: Create Config file
+- name: Create Config file - {{item.dir}}/{{item.name}}
   ansible.builtin.template:
     src: s-job.xml
     dest: /tmp/s-job.xml
   when: out.failed | bool
 
-- name: Create Job
+- name: Create Job - {{item.dir}}/{{item.name}}
   community.general.jenkins_job:
     config: "{{ lookup('file', '/tmp/s-job.xml') }}"
     name: "{{item.dir}}/{{item.name}}"
