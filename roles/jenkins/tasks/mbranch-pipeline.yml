@@ -1,3 +1,4 @@
+
 - name: Create Config file
   ansible.builtin.template:
     src: m-job.xml
@@ -12,3 +13,4 @@
     url: http://172.31.6.1:8080
     user: admin
     password: "{{jenkins_password}}"
+
